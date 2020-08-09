@@ -1,0 +1,26 @@
+{
+  "name": "typing-game",
+  "version": "1.0.0",
+  "description": "\"# 12.Typing-Game-DOM-Intervals-Events\"",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel public/index.html --out-dir development -p 3000",
+    "build": "parcel build public/index.html --out-dir dist --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/girwarkishor/12.Typing-Game-DOM-Intervals-Events.git"
+  },
+  "author": "Girwar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/girwarkishor/12.Typing-Game-DOM-Intervals-Events/issues"
+  },
+  "homepage": "https://github.com/girwarkishor/12.Typing-Game-DOM-Intervals-Events#readme",
+  "dependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/runtime-corejs3": "^7.11.2",
+    "sass": "^1.26.10"
+  }
+}

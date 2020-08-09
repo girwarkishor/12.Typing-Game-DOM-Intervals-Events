@@ -1,1 +1,1 @@
-"# 12.Typing-Game-DOM-Intervals-Events" 
+# Typing Game DOM, Intervals Events
