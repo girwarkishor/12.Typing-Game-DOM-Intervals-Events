@@ -193,6 +193,54 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./scss/main.scss");
+
+var word = document.getElementById('word');
+var text = document.getElementById('text');
+var scoreEl = document.getElementById('score');
+var timeEl = document.getElementById('time');
+var endgameEl = document.getElementById('end-game');
+var settingsBtn = document.getElementById('settings-btn');
+var settings = document.getElementById('settings');
+var settingsForm = document.getElementById('settings-form');
+var difficultySelect = document.getElementById('difficulty'); // List of words for game
+
+var words = ['sigh', 'tense', 'airplane', 'ball', 'pies', 'juice', 'warlike', 'bad', 'north', 'dependent', 'steer', 'silver', 'highfalutin', 'superficial', 'quince', 'eight', 'feeble', 'admit', 'drag', 'loving']; // Init word
+
+var randomWord; // Init score
+
+var score = 0; // Init time
+
+var time = 10; // Generate random word from array
+
+function getRandomWord() {
+  return words[Math.floor(Math.random() * words.length)];
+} // Add word to DOM
+
+
+function addWordToDOM() {
+  randomWord = getRandomWord();
+  word.innerHTML = randomWord;
+} // Update score
+
+
+function updateScore() {
+  score++;
+  scoreEl.innerHTML = score;
+}
+
+addWordToDOM(); // console.log(getRandomWord());
+// Event listeners
+
+text.addEventListener('input', function (e) {
+  var insertedText = e.target.value; //   console.log(insertedText);
+
+  if (insertedText === randomWord) {
+    addWordToDOM();
+    updateScore(); // Clear
+
+    e.target.value = '';
+  }
+});
 },{"./scss/main.scss":"../src/scss/main.scss"}],"C:/Users/girwa/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
