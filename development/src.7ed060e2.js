@@ -647,7 +647,11 @@ var randomWord; // Init score
 
 var score = 0; // Init time
 
-var time = 10; // Focus on text on start
+var time = 10; // Set difficulty to value in ls or medium
+
+var difficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium'; // Set difficulty select value
+
+difficultySelect.value = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium'; // Focus on text on start
 
 text.focus(); // Start counting down
 
@@ -690,6 +694,7 @@ function gameOver() {
 
 addWordToDOM(); // console.log(getRandomWord());
 // Event listeners
+// Typing
 
 text.addEventListener('input', function (e) {
   var insertedText = e.target.value; //   console.log(insertedText);
@@ -699,9 +704,27 @@ text.addEventListener('input', function (e) {
     updateScore(); // Clear
 
     e.target.value = '';
-    time += 5;
+
+    if (difficulty === 'hard') {
+      time += 2;
+    } else if (difficulty === 'medium') {
+      time += 3;
+    } else {
+      time += 5;
+    }
+
     updateTime();
   }
+}); // Settings btn click
+
+settingsBtn.addEventListener('click', function () {
+  settings.classList.toggle('hide');
+}); // Settings select
+
+settingsForm.addEventListener('change', function (e) {
+  difficulty = e.target.value; //   console.log(difficulty);
+
+  localStorage.setItem('difficulty', difficulty);
 });
 },{"@babel/runtime-corejs3/core-js-stable/set-interval":"../node_modules/@babel/runtime-corejs3/core-js-stable/set-interval.js","./scss/main.scss":"../src/scss/main.scss"}],"C:/Users/girwa/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
